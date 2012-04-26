@@ -29,3 +29,12 @@ int main()
 	    done = 1;
     }
 }
+
+
+// Enter 0 for both x and y to quit
+// Input (hex) value of x: 11223344
+// Input (hex) value of y: aabbccdd
+// Result = 0xaabbcc44 [Input values were 0x11223344 (x) and 0xaabbccdd (y)]
+// Input (hex) value of x: 0
+// Input (hex) value of y: 0
+// Result = 0x00000000 [Input values were 0x00000000 (x) and 0x00000000 (y)]

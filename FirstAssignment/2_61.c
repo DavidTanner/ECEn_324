@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <limits.h> // defines INT_MIN and INT_MAX
+
+
+#define TEST_SIZE 10
+
 int any_bit_one(int x) {
     
 	return x || x;
@@ -22,7 +26,7 @@ int msb_zero(int x) {
 int main(void) {
 	int x;
 	// Test all integer values
-	for (x = INT_MIN; x <= INT_MAX; x++) {
+	for (x = 2; x <= 3; x++) {
 		if (any_bit_one(x) != (x != 0)) {
 			printf("Any bit in x equal to 1	FAILED!\n");
 			break;
@@ -54,36 +58,123 @@ int main(void) {
 		}
 	}
     
+    int test_all[TEST_SIZE] = {0,1,-1,INT_MAX,INT_MIN,0xFF000000, 0x00FF0000, 0x0000FF00, 0x000000FF, 0x01010101};
+    
 	// Enter the numbers you want to test
-	int any_bit_one_test_cases[5] = { 0, 1, -1, INT_MAX, INT_MIN };
-	int i;
-	for (i = 0; i < 5; i++) {
-		printf("any_bit_one(0x%08x) = %d\n", any_bit_one_test_cases[i],
-               any_bit_one(any_bit_one_test_cases[i]));
+    int i;
+	for (i = 0; i < TEST_SIZE; i++) {
+		printf("any_bit_one(0x%08x) = %d\n", test_all[i],
+               any_bit_one(test_all[i]));
+               
+		printf("any_bit_zero(0x%08x) = %d\n", test_all[i],
+               any_bit_zero(test_all[i]));
+               
+		printf("lsb_one(0x%08x) = %d\n", test_all[i],
+               lsb_one(test_all[i]));
+               
+		printf("msb_zero(0x%08x) = %d\n", test_all[i],
+               msb_zero(test_all[i]));
+        
+        printf("\n");
 	}
-    
-	printf("\n");
-	// Enter new set of test cases
-	int any_bit_zero_test_cases[5] = { 0, 1, -1, INT_MAX, INT_MIN };
-	for (i = 0; i < 5; i++) {
-		printf("any_bit_zero(0x%08x) = %d\n", any_bit_zero_test_cases[i],
-               any_bit_zero(any_bit_zero_test_cases[i]));
-	}
-    
-	printf("\n");
-	// Enter new set of test cases
-	int lsb_one_test_cases[5] = { 0, 1, -1, INT_MAX, INT_MIN };
-	for (i = 0; i < 5; i++) {
-		printf("lsb_one(0x%08x) = %d\n", lsb_one_test_cases[i],
-               lsb_one(lsb_one_test_cases[i]));
-	}
-    
-	printf("\n");
-	// Enter new set of test cases
-	int msb_zero_test_cases[5] = { 0, 1, -1, INT_MAX, INT_MIN };
-	for (i = 0; i < 5; i++) {
-		printf("msb_zero(0x%08x) = %d\n", msb_zero_test_cases[i],
-               msb_zero(msb_zero_test_cases[i]));
-	}
-	return 0;
 }
+
+
+
+
+//-2100000000
+//-2000000000
+//-1900000000
+//-1800000000
+//-1700000000
+//-1600000000
+//-1500000000
+//-1400000000
+//-1300000000
+//-1200000000
+//-1100000000
+//-1000000000
+//-900000000
+//-800000000
+//-700000000
+//-600000000
+//-500000000
+//-400000000
+//-300000000
+//-200000000
+//-100000000
+//0
+//100000000
+//200000000
+//300000000
+//400000000
+//500000000
+//600000000
+//700000000
+//800000000
+//900000000
+//1000000000
+//1100000000
+//1200000000
+//1300000000
+//1400000000
+//1500000000
+//1600000000
+//1700000000
+//1800000000
+//1900000000
+//2000000000
+//2100000000
+//All tests passed!
+//
+//any_bit_one(0x00000000) = 0
+//any_bit_zero(0x00000000) = 1
+//lsb_one(0x00000000) = 0
+//msb_zero(0x00000000) = 1
+//
+//any_bit_one(0x00000001) = 1
+//any_bit_zero(0x00000001) = 1
+//lsb_one(0x00000001) = 1
+//msb_zero(0x00000001) = 1
+//
+//any_bit_one(0xffffffff) = 1
+//any_bit_zero(0xffffffff) = 0
+//lsb_one(0xffffffff) = 1
+//msb_zero(0xffffffff) = 0
+//
+//any_bit_one(0x7fffffff) = 1
+//any_bit_zero(0x7fffffff) = 1
+//lsb_one(0x7fffffff) = 1
+//msb_zero(0x7fffffff) = 1
+//
+//any_bit_one(0x80000000) = 1
+//any_bit_zero(0x80000000) = 1
+//lsb_one(0x80000000) = 0
+//msb_zero(0x80000000) = 1
+//
+//any_bit_one(0xff000000) = 1
+//any_bit_zero(0xff000000) = 1
+//lsb_one(0xff000000) = 0
+//msb_zero(0xff000000) = 0
+//
+//any_bit_one(0x00ff0000) = 1
+//any_bit_zero(0x00ff0000) = 1
+//lsb_one(0x00ff0000) = 0
+//msb_zero(0x00ff0000) = 1
+//
+//any_bit_one(0x0000ff00) = 1
+//any_bit_zero(0x0000ff00) = 1
+//lsb_one(0x0000ff00) = 0
+//msb_zero(0x0000ff00) = 1
+//
+//any_bit_one(0x000000ff) = 1
+//any_bit_zero(0x000000ff) = 1
+//lsb_one(0x000000ff) = 1
+//msb_zero(0x000000ff) = 1
+//
+//any_bit_one(0x01010101) = 1
+//any_bit_zero(0x01010101) = 1
+//lsb_one(0x01010101) = 1
+//msb_zero(0x01010101) = 1
+
+

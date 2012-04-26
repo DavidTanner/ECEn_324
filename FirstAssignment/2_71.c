@@ -44,5 +44,14 @@ int main(void)
 	   x, myxbyte(x,3));
 }
 
+
+//Packed value (x) = 0x1234abff, value returned by xbyte(x,0) = 0xff
+//Packed value (x) = 0x1234abff, value returned by xbyte(x,1) = 0xab
+//Packed value (x) = 0x1234abff, value returned by xbyte(x,2) = 0x34
+//Packed value (x) = 0x1234abff, value returned by xbyte(x,3) = 0x12
+//Packed value (x) = 0x1234abff, value returned by myxbyte(x,0) = 0xffffffff
+//Packed value (x) = 0x1234abff, value returned by myxbyte(x,1) = 0xffffffab
+//Packed value (x) = 0x1234abff, value returned by myxbyte(x,2) = 0x34
+//Packed value (x) = 0x1234abff, value returned by myxbyte(x,3) = 0x12
     
     
