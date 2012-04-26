@@ -5,6 +5,7 @@
 
 typedef unsigned packed_t;
 
+/* Failed attempt at xbyte */ 
 /* extract byte from word. Return as signed integer */
 int xbyte(packed_t word, int bytenum)
 {
@@ -14,7 +15,8 @@ int xbyte(packed_t word, int bytenum)
 /* change the function below to give the correct answer */ 
 int myxbyte(packed_t word, int bytenum)
 {
-    return 2;
+    int temp = word << ((3-bytenum) << 3);
+    return (temp >> 24 );
 }
 
 int main(void)
