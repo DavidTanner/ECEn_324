@@ -1,3 +1,6 @@
+//  a. The older method is incorrect because it doesn't treat each byte as a signed value, 
+
+
 #include <stdio.h>
 
 /* declaration of data type where 4 bytes are packed 

@@ -26,7 +26,7 @@ int msb_zero(int x) {
 int main(void) {
 	int x;
 	// Test all integer values
-	for (x = 2; x <= 3; x++) {
+	for (x = INT_MIN; x <= INT_MAX; x++) {
 		if (any_bit_one(x) != (x != 0)) {
 			printf("Any bit in x equal to 1	FAILED!\n");
 			break;
